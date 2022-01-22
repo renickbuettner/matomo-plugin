@@ -15,7 +15,7 @@ class Plugin extends PluginBase
     {
         if (App::runningInConsole()
             || App::runningUnitTests()
-            //|| App::runningInBackend()
+            || App::runningInBackend()
             || !Settings::instance()->use_middleware) {
             return;
         }
