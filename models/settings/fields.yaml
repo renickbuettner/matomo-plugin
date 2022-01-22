@@ -1,0 +1,48 @@
+tabs:
+  fields:
+    use_middleware:
+      label: renick.matomo::lang.backend.settings.middleware.label
+      commentAbove: renick.matomo::lang.backend.settings.middleware.comment
+      span: left
+      type: switch
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    use_cookies:
+      label: renick.matomo::lang.backend.settings.cookies.label
+      commentAbove: renick.matomo::lang.backend.settings.cookies.comment
+      span: left
+      type: switch
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    _ruler1:
+      type: ruler
+      span: full
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    remote_url:
+      label: renick.matomo::lang.backend.settings.remote_url.label
+      commentAbove: renick.matomo::lang.backend.settings.remote_url.comment
+      span: left
+      type: text
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    auth_token:
+      label: renick.matomo::lang.backend.settings.auth_token.label
+      commentAbove: renick.matomo::lang.backend.settings.auth_token.comment
+      span: left
+      type: text
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    site_id:
+      label: renick.matomo::lang.backend.settings.site_id.label
+      commentAbove: renick.matomo::lang.backend.settings.site_id.comment
+      span: left
+      type: number
+      tab: renick.matomo::lang.backend.settings.tabs.general
+
+    container_id:
+      label: renick.matomo::lang.backend.settings.container_id.label
+      commentAbove: renick.matomo::lang.backend.settings.container_id.comment
+      span: left
+      type: text
+      tab: renick.matomo::lang.backend.settings.tabs.general

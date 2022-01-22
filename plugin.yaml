@@ -1,0 +1,6 @@
+plugin:
+  name: 'renick.matomo::lang.plugin.name'
+  description: 'Deep simple Matomo integration for OctoberCMS.'
+  author: 'Renick Büttner'
+  icon: oc-icon-area-chart
+  homepage: 'https://renick.io'

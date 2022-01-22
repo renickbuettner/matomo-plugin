@@ -1,0 +1,11 @@
+{
+  "name": "renick/matomo-plugin",
+  "type": "october-plugin",
+  "description": "Deep simple Matomo integration for OctoberCMS",
+  "require": {
+    "october/system": "^2.1",
+    "composer/installers": "~1.0",
+    "matomo/matomo-php-tracker": "^3.0.4",
+    "visualappeal/matomo-php-api": "^1.6"
+  }
+}
