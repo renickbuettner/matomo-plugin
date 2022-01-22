@@ -2,15 +2,18 @@
   "name": "renick/matomo-plugin",
   "type": "october-plugin",
   "description": "Deep simple Matomo integration for OctoberCMS",
+  "license": "MIT",
   "require": {
+    "php": ">=7.4",
     "october/system": "^2.1",
     "composer/installers": "~1.0",
     "matomo/matomo-php-tracker": "^3.0.4",
     "visualappeal/matomo-php-api": "^1.6"
   },
-  "scripts": {
-    "build": [
-      "@composer install --no-progress --no-interaction --no-suggest"
-    ]
-  }
+  "authors": [
+    {
+      "name": "Renick Büttner",
+      "homepage": "https://renick.io"
+    }
+  ]
 }
