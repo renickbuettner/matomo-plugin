@@ -21,5 +21,5 @@ request.
 
 Future ideas: 
 
-- [] measure impact of accessing plugins config from database on site performance - may add support for in-memory cache? 
-- [] add more report widgets (api is prepared...)
+- [ ] measure impact of accessing plugins config from database on site performance - may add support for in-memory cache? 
+- [ ] add more report widgets (api is prepared...)
