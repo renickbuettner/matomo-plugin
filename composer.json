@@ -11,6 +11,6 @@
   "scripts": {
     "build": [
       "@composer install --no-progress --no-interaction --no-suggest"
-    ],
+    ]
   }
 }
