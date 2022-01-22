@@ -8,6 +8,7 @@ use Renick\Matomo\ReportWidgets\BrowserOverview;
 use Renick\Matomo\ReportWidgets\ScreenSizeOverview;
 use Renick\Matomo\ReportWidgets\TrafficOverview;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 
 class Plugin extends PluginBase
 {
@@ -30,7 +31,7 @@ class Plugin extends PluginBase
             'settings' => [
                 'label' => 'renick.matomo::lang.backend.settings.label',
                 'description' => 'renick.matomo::lang.backend.settings.description',
-                'category' => 'renick.matomo::lang.backend.settings.category',
+                'category' => SettingsManager::CATEGORY_CMS,
                 'icon' => 'icon-area-chart',
                 'order' => 500,
                 'keywords' => 'matomo piwik analytics',

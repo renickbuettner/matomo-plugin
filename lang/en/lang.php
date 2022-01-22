@@ -38,7 +38,6 @@
       'settings' => [
           'label' => 'Matomo Settings',
           'description' => 'Set your matomo credentials.',
-          'category' => 'Matomo',
           'tabs' => [
               'general' => 'Your Matomo Settings',
           ],

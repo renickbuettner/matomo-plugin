@@ -38,7 +38,6 @@
         'settings' => [
             'label' => 'Matomo Einstellungen',
             'description' => 'Matomo Einstellungen verwalten.',
-            'category' => 'Matomo',
             'tabs' => [
                 'general' => 'Deine Matomo Einstellungen',
             ],

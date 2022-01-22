@@ -22,7 +22,7 @@ class MatomoMiddleware
         try {
             Settings::instance()
                 ->getBridge()
-                ->useTracking($request);
+                ->useTracking();
 
         } catch (Exception $e) {
             // do nothing, it's quality code, I promise
