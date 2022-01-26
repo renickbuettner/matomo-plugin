@@ -73,7 +73,8 @@ class Settings extends Model
      * Returns state if Report Widget can be enabled
      * @return bool
      */
-    public function getReportWidgetsEnabledAttribute(): bool {
+    public function getReportWidgetsEnabledAttribute(): bool
+    {
         foreach (['auth_token', 'remote_url', 'site_id'] as $required) {
             if (!isset($this->attributes[$required])) {
                 return false;
@@ -87,7 +88,8 @@ class Settings extends Model
      * Returns state of configuration.
      * @return bool
      */
-    public function getValidAttribute(): bool {
+    public function getValidAttribute(): bool
+    {
         foreach (['remote_url', 'site_id'] as $required) {
             if (!isset($this->attributes[$required])) {
                 return false;
