@@ -25,10 +25,6 @@ class Settings extends Model
         'site_id' => 'numeric',
     ];
 
-    public $requiredFields = [
-
-    ];
-
     /**
      * Casts the status to a boolean.
      * @return bool
