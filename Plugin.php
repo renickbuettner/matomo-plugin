@@ -14,10 +14,14 @@ class Plugin extends PluginBase
 {
     public function boot(): void
     {
+        // ToDo: cache the settings within memory (at least support for this ;-))
+        $settings = Settings::instance();
+
         if (App::runningInConsole()
             || App::runningUnitTests()
             || App::runningInBackend()
-            || !Settings::instance()->use_middleware) {
+            || !$settings->valid
+            || !$settings->use_middleware) {
             return;
         }
 
@@ -67,6 +71,10 @@ class Plugin extends PluginBase
 
     public function registerReportWidgets()
     {
+        if (!Settings::instance()->report_widgets_enabled) {
+            return [];
+        }
+
         return [
             TrafficOverview::class => [
                 'label'       => 'renick.matomo::lang.report_widgets.traffic.label',

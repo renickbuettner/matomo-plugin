@@ -25,13 +25,17 @@ class Settings extends Model
         'site_id' => 'numeric',
     ];
 
+    public $requiredFields = [
+
+    ];
+
     /**
      * Casts the status to a boolean.
      * @return bool
      */
     public function getUseMiddlewareAttribute(): bool
     {
-        return boolval($this->attributes['use_middleware']);
+        return boolval($this->attributes['use_middleware'] ?? false);
     }
 
     /**
@@ -40,7 +44,7 @@ class Settings extends Model
      */
     public function getUseCookiesAttribute(): bool
     {
-        return boolval($this->attributes['use_cookies']);
+        return boolval($this->attributes['use_cookies'] ?? false);
     }
 
     /**
@@ -67,5 +71,33 @@ class Settings extends Model
             $this->auth_token,
             $this->site_id
         );
+    }
+
+    /**
+     * Returns state if Report Widget can be enabled
+     * @return bool
+     */
+    public function getReportWidgetsEnabledAttribute(): bool {
+        foreach (['auth_token', 'remote_url', 'site_id'] as $required) {
+            if (!isset($this->attributes[$required])) {
+                return false;
+            }
+        };
+
+        return true;
+    }
+
+    /**
+     * Returns state of configuration.
+     * @return bool
+     */
+    public function getValidAttribute(): bool {
+        foreach (['remote_url', 'site_id'] as $required) {
+            if (!isset($this->attributes[$required])) {
+                return false;
+            }
+        };
+
+        return true;
     }
 }
