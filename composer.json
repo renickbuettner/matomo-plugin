@@ -4,7 +4,7 @@
   "description": "Deep simple Matomo integration for OctoberCMS",
   "license": "MIT",
   "require": {
-    "php": ">=8.0",
+    "php": ">=7.3",
     "composer/installers": "~1.0",
     "matomo/matomo-php-tracker": "^3.0.4",
     "visualappeal/matomo-php-api": "^1.6",
@@ -13,7 +13,7 @@
   "authors": [
     {
       "name": "Renick Büttner",
-      "homepage": "https://renick.io"
+      "homepage": "https://www.renick.io"
     }
   ],
   "minimum-stability": "dev"
