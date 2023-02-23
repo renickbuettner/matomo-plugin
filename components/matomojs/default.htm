@@ -1,3 +1,4 @@
+{% if __SELF__.remoteUrl and __SELF__.siteId %}
 <script>
     var _paq = window._paq = window._paq || [];
     {% if not __SELF__.useCookies() %}
@@ -14,3 +15,4 @@
     })();
 </script>
 <noscript><p><img src="{{ __SELF__.remoteUrl }}matomo.php?idsite={{ __SELF__.siteId }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+{% endif %}
