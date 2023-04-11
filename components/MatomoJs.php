@@ -36,4 +36,8 @@ class MatomoJs extends ComponentBase
     {
         return $this->settings->use_cookies ?? false;
     }
+
+    public function isLoggedInAdmin(): bool {
+        return $this->settings->isLoggedInAdmin();
+    }
 }

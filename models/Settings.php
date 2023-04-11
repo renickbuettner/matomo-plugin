@@ -98,4 +98,18 @@ class Settings extends Model
 
         return true;
     }
+
+    /**
+     * We want to detect, if an admin user is logged
+     * @return bool
+     */
+    public function isLoggedInAdmin(): bool {
+        try {
+            $user = \Backend\Facades\BackendAuth::getUser();
+            return $user !== null;
+
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }

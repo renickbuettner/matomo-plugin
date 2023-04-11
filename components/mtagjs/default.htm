@@ -1,6 +1,10 @@
+{% if __SELF__.isLoggedInAdmin() %}
+<script>const _mtm = 'disabled for admin user';</script>
+{% else %}
 <script>
     var _mtm = window._mtm = window._mtm || [];
     _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.async=true; g.src='{{ __SELF__.remoteUrl }}js/container_{{ __SELF__.containerId }}.js'; s.parentNode.insertBefore(g,s);
 </script>
+{% endif %}

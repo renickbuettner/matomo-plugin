@@ -31,4 +31,8 @@ class MTagJs extends ComponentBase
     {
         return $this->settings->container_id ?? "";
     }
+
+    public function isLoggedInAdmin(): bool {
+        return $this->settings->isLoggedInAdmin();
+    }
 }
