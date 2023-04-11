@@ -2,3 +2,5 @@
   - 'MVP with all basic features'
 1.0.1:
   - 'Tested with OctoberCMS v3.1'
+1.0.3:
+  - 'Added: admin users are not tracked anymore'
