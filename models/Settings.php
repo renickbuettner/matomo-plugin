@@ -22,7 +22,7 @@ class Settings extends Model
     public $rules = [
         'url' => 'url',
         'auth_token' => 'string|max:64',
-        'site_id' => 'numeric',
+        'matomo_site_id' => 'numeric',
     ];
 
     /**
@@ -52,7 +52,7 @@ class Settings extends Model
         return new MatomoBridge(
             $this->remote_url,
             $this->auth_token,
-            $this->site_id
+            $this->matomo_site_id
         );
     }
 
@@ -65,7 +65,7 @@ class Settings extends Model
         return new MatomoReports(
             $this->remote_url,
             $this->auth_token,
-            $this->site_id
+            $this->matomo_site_id
         );
     }
 
@@ -75,7 +75,7 @@ class Settings extends Model
      */
     public function getReportWidgetsEnabledAttribute(): bool
     {
-        foreach (['auth_token', 'remote_url', 'site_id'] as $required) {
+        foreach (['auth_token', 'remote_url', 'matomo_site_id'] as $required) {
             if (!isset($this->attributes[$required])) {
                 return false;
             }
@@ -90,7 +90,7 @@ class Settings extends Model
      */
     public function getValidAttribute(): bool
     {
-        foreach (['remote_url', 'site_id'] as $required) {
+        foreach (['remote_url', 'matomo_site_id'] as $required) {
             if (!isset($this->attributes[$required])) {
                 return false;
             }

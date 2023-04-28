@@ -4,3 +4,6 @@
   - 'Tested with OctoberCMS v3.1'
 1.0.3:
   - 'Added: admin users are not tracked anymore'
+1.0.4:
+  - 'OctoberCMS v3.2 compatibility'
+  - octobercms3-2siteidmigration.php

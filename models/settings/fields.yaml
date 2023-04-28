@@ -33,7 +33,7 @@ tabs:
       type: text
       tab: renick.matomo::lang.backend.settings.tabs.general
 
-    site_id:
+    matomo_site_id:
       label: renick.matomo::lang.backend.settings.site_id.label
       commentAbove: renick.matomo::lang.backend.settings.site_id.comment
       span: left
