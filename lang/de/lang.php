@@ -58,7 +58,7 @@
                 'label' => 'Auth token',
                 'comment' => 'Der Zugriffstoken für Matomo. Kann im Matomo Adminbereich angelegt werden.',
             ],
-            'site_id' => [
+            'matomo_site_id' => [
                 'label' => 'Seitennummer',
                 'comment' => 'Die interne Seitennummer von Matomo. Kann in Matomo aus dem Link abgelesen werden.',
             ],

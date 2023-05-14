@@ -60,7 +60,7 @@
               'comment' => 'An auth token for accessing the internal matomo Api. You can create one in the ' .
                            'Matomo admin panel.',
           ],
-          'site_id' => [
+          'matomo_site_id' => [
               'label' => 'Site Id',
               'comment' => 'The id of the site in matomo. You can find this in the URL of the site in matomo.',
           ],

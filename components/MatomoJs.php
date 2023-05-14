@@ -22,9 +22,9 @@ class MatomoJs extends ComponentBase
         ];
     }
 
-    public function siteId(): string
+    public function matomoSiteId(): string
     {
-        return $this->settings->site_id ?? "";
+        return $this->settings->matomo_site_id ?? "";
     }
 
     public function remoteUrl(): string
