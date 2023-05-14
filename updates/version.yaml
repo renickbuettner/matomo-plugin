@@ -6,4 +6,4 @@
   - 'Added: admin users are not tracked anymore'
 1.0.4:
   - 'Added: support for OctoberCMS 3.2.x'
-  - updates/1-0-4_matomo_update_database.php
+  - 1-0-4_matomo_update_database.php
