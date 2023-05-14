@@ -1,7 +1,6 @@
 <?php
 
 use October\Rain\Database\Updates\Migration;
-use DB;
 
 return new class extends Migration {
     public function up()
