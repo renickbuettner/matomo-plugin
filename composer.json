@@ -4,10 +4,10 @@
   "description": "Deep simple Matomo integration for OctoberCMS",
   "license": "MIT",
   "require": {
-    "php": ">=7.3",
+    "php": ">=7.4",
     "composer/installers": "~1.0",
-    "matomo/matomo-php-tracker": "^3.0.4",
-    "visualappeal/matomo-php-api": "^1.6",
+    "matomo/matomo-php-tracker": ">=3.0.1",
+    "visualappeal/matomo-php-api": "^1.6|^2.0",
     "october/system": ">=2.1"
   },
   "authors": [
