@@ -1,17 +1,15 @@
 <?php namespace Renick\Matomo\ReportWidgets;
 
-use Arr;
 use Backend\Classes\ReportWidgetBase;
-use Carbon\Carbon;
 use Exception;
 use Renick\Matomo\Models\Settings;
 
-class TrafficOverview extends ReportWidgetBase
+class CampaignOverview extends ReportWidgetBase
 {
     /**
      * @var string A unique alias to identify this widget.
      */
-    protected $defaultAlias = 'matomo_traffic_overview';
+    protected $defaultAlias = 'matomo_campaign_overview';
 
     public function render()
     {
@@ -31,7 +29,7 @@ class TrafficOverview extends ReportWidgetBase
         return [
             'title' => [
                 'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.traffic.label',
+                'default' => 'renick.matomo::lang.report_widgets.campaign.label',
                 'type' => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
@@ -44,13 +42,7 @@ class TrafficOverview extends ReportWidgetBase
         $reports = Settings::instance()
             ->getReports();
 
-        $visits = $reports->getVisitsSummary();
-        $dataset = collect($visits ?? [])->map(function($value, $key) {
-            $time = Carbon::parse($key)->getTimestampMs();
-            return "[{$time}, {$value}]";
-        })->join(', ');
-
-        $this->vars['dataset'] = $dataset;
+        $this->vars['campaign'] = $reports->getCampaignSummary();
         $this->vars['period'] = $reports->getPeriod(true);
     }
 

@@ -4,6 +4,14 @@
         'description' => 'Deep simple Matomo integration for OctoberCMS.',
         'menu_item' => 'Matomo',
     ],
+    "period" => "Period",
+    "periods" => [
+        "day" => "Day",
+        "week" => "Week",
+        "month" => "Month",
+        "year" => "Year",
+    ],
+    "visitssummary" => "Visits Summary",
     'permissions' => [
         'tab' => 'Matomo',
         'manage_settings' => [
@@ -30,8 +38,11 @@
         'browser' => [
             'label' => 'Matomo Browsers Overview',
         ],
-        'screens' => [
-            'label' => 'Matomo Screen Sizes Overview',
+        'campaign' => [
+            'label' => 'Matomo Campaign Overview',
+        ],
+        'pages' => [
+            'label' => 'Matomo Most Visited Pages',
         ],
     ],
     'backend' => [

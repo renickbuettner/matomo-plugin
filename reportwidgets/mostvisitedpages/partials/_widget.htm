@@ -1,0 +1,26 @@
+<div class="report-widget widget-matomo-pages-overview">
+    <h3><?= e(trans($this->property('title'))) ?></h3>
+    <div class="graph-container" style="padding: 6px; min-height: 232px;">
+
+        <div class="control-list">
+            <table class="table data">
+                <tbody>
+                <?php foreach(($this->vars['pages'] ?? []) as $row): ?>
+                    <tr>
+                        <td><?= $row['nb_visits'] ?? 0 ?></td>
+                        <td>
+                            <a href="<?= $row['url'] ?? '' ?>" target="_blank">
+                                <?= $row['label'] ?? 0 ?>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <span style="opacity: 0.9; margin-top: 6px;">
+        <?= trans('renick.matomo::lang.period') ?>: <b><?= $this->vars['period'] ?? '' ?></b>
+    </span>
+</div>

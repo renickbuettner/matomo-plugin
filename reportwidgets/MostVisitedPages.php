@@ -4,12 +4,12 @@ use Backend\Classes\ReportWidgetBase;
 use Exception;
 use Renick\Matomo\Models\Settings;
 
-class ScreenSizeOverview extends ReportWidgetBase
+class MostVisitedPages extends ReportWidgetBase
 {
     /**
      * @var string A unique alias to identify this widget.
      */
-    protected $defaultAlias = 'matomo_traffic_overview';
+    protected $defaultAlias = 'matomo_most_visited_pages';
 
     public function render()
     {
@@ -29,7 +29,7 @@ class ScreenSizeOverview extends ReportWidgetBase
         return [
             'title' => [
                 'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.screens.label',
+                'default' => 'renick.matomo::lang.report_widgets.pages.label',
                 'type' => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
@@ -42,7 +42,8 @@ class ScreenSizeOverview extends ReportWidgetBase
         $reports = Settings::instance()
             ->getReports();
 
-        $this->vars['screens'] = $reports->getScreenSizeSummary();
+        $this->vars['pages'] = $reports->getMostVisistedPages();
+        $this->vars['period'] = $reports->getPeriod(true);
     }
 
 }

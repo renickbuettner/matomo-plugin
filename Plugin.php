@@ -5,7 +5,8 @@ use Illuminate\Contracts\Http\Kernel;
 use Renick\Matomo\Classes\MatomoMiddleware;
 use Renick\Matomo\Models\Settings;
 use Renick\Matomo\ReportWidgets\BrowserOverview;
-use Renick\Matomo\ReportWidgets\ScreenSizeOverview;
+use Renick\Matomo\ReportWidgets\CampaignOverview;
+use Renick\Matomo\ReportWidgets\MostVisitedPages;
 use Renick\Matomo\ReportWidgets\TrafficOverview;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
@@ -86,8 +87,13 @@ class Plugin extends PluginBase
                 'context'     => 'dashboard',
                 'permissions' => ['renick.matomo.permissions.report_widgets']
             ],
-            ScreenSizeOverview::class => [
-                'label'       => 'renick.matomo::lang.report_widgets.screens.label',
+            CampaignOverview::class => [
+                'label'       => 'renick.matomo::lang.report_widgets.campaign.label',
+                'context'     => 'dashboard',
+                'permissions' => ['renick.matomo.permissions.report_widgets']
+            ],
+            MostVisitedPages::class => [
+                'label'       => 'renick.matomo::lang.report_widgets.pages.label',
                 'context'     => 'dashboard',
                 'permissions' => ['renick.matomo.permissions.report_widgets']
             ],

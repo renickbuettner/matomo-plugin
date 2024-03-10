@@ -1,19 +1,14 @@
-<div class="report-widget widget-matomo-browser-overview">
+<div class="report-widget widget-matomo-campaign-overview">
     <h3><?= e(trans($this->property('title'))) ?></h3>
     <div class="graph-container" style="padding: 6px; min-height: 232px;">
-
         <div
             class="control-chart wrap-legend"
             data-control="chart-bar"
             data-height="172"
             data-full-width="1">
             <ul>
-                <?php foreach (($this->vars['browser'] ?? []) as $row): ?>
-                <li>
-                   <?php /*  <img src="<?= $row['logo'] ?? '' ?>" alt="<?= $row['label'] ?? '' ?> " loading="lazy" width="24" /> */ ?>
-                    <?= $row['label'] ?? '' ?>
-                    <span><?= $row['nb_visits'] ?? 0 ?></span>
-                </li>
+                <?php foreach(($this->vars['campaign'] ?? []) as $row): ?>
+                <li><?= $row['label'] ?? '' ?> <span><?= $row['nb_visits'] ?? 0 ?></span></li>
                 <?php endforeach; ?>
             </ul>
         </div>
