@@ -1,7 +1,7 @@
 {
   "name": "renick/matomo-plugin",
   "type": "october-plugin",
-  "description": "Deep simple Matomo integration for OctoberCMS",
+  "description": "Matomo integration for OctoberCMS with server-side tracking, report widgets",
   "license": "MIT",
   "require": {
     "php": ">=7.4",
@@ -15,9 +15,4 @@
     }
   ],
   "minimum-stability": "dev",
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true
-    }
-  }
 }
