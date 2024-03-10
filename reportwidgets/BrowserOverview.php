@@ -43,6 +43,7 @@ class BrowserOverview extends ReportWidgetBase
             ->getReports();
 
         $this->vars['browser'] = $reports->getBrowsersSummary();
+        $this->vars['period'] = $reports->getPeriod(true);
     }
 
 }

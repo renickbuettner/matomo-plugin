@@ -1,6 +1,21 @@
 <div class="report-widget widget-matomo-traffic-overview">
     <h3><?= e(trans($this->property('title'))) ?></h3>
-    <div class="graph-container" style="padding: 6px;">
-        <img style="width: 100%;" src="<?= $visits ?>" />
+    <div class="graph-container" style="padding: 6px; min-height: 232px;">
+        <div
+            data-control="chart-line"
+            data-time-mode="weeks"
+            style="height: 220px"
+            data-chart-options="xaxis: {mode: 'time'}">
+            <span
+                data-chart="dataset"
+                data-set-color="#008dc9"
+                data-set-data="<?= $this->vars['dataset'] ?? '' ?>"
+                data-set-name="<?= trans('renick.matomo::lang.visitssummary') ?>">
+            </span>
+        </div>
     </div>
+
+    <span style="opacity: 0.9; margin-top: 6px;">
+        <?= trans('renick.matomo::lang.period') ?>: <b><?= $this->vars['period'] ?? '' ?></b>
+    </span>
 </div>
