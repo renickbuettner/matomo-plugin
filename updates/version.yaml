@@ -7,3 +7,6 @@
 1.0.4:
   - 'Added: support for OctoberCMS 3.2.x'
   - 1-0-4_matomo_update_database.php
+1.0.5:
+  - 'Added: redesigned report widgets'
+  - 'Added: support for Laravel 10'
