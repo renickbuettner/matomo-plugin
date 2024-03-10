@@ -6,7 +6,7 @@
   "require": {
     "php": ">=7.4",
     "composer/installers": "~1.0",
-    "matomo/matomo-php-tracker": ">=3.0.1",
+    "matomo/matomo-php-tracker": ">=3.0.4",
     "visualappeal/matomo-php-api": "^1.6|^2.0",
     "october/system": ">=2.1"
   },
