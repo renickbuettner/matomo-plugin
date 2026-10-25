@@ -142,7 +142,8 @@ class WidgetsTest extends MatomoTestCase
 
         $this->assertStringContainsString($css, $html);
         $this->assertStringContainsString('Offline', $html);
-        $this->assertSame('unreachable', $widget->vars['error'] ?? null);
+        $this->assertSame(trans('renick.matomo::lang.report_widgets.load_error'), $widget->vars['error'] ?? null);
+        $this->assertStringNotContainsString('unreachable', $html);
     }
 
     public function testErrorObjectFromMatomoDoesNotBreakTheTrafficWidget(): void

@@ -20,7 +20,7 @@ class CampaignOverview extends ReportWidgetBase
             $this->loadData();
         }
         catch (Throwable $ex) {
-            $this->vars['error'] = $ex->getMessage();
+            $this->reportLoadError($ex);
         }
 
 
