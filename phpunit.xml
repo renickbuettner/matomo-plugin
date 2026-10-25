@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Unit tests for Renick.Matomo. Run from the October CMS root:
+    php artisan plugin:test Renick.Matomo
+  tests/bootstrap.php finds the October root (cwd or OCTOBER_ROOT).
+-->
+<phpunit backupGlobals="false"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+>
+    <testsuites>
+        <testsuite name="Renick.Matomo">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="APP_ENV" value="testing" />
+        <env name="APP_LOCALE" value="en" />
+        <env name="CACHE_DRIVER" value="array" />
+        <env name="CACHE_STORE" value="array" />
+        <env name="SESSION_DRIVER" value="array" />
+        <env name="CMS_SAFE_MODE" value="false" />
+        <env name="CMS_ROUTE_CACHE" value="false" />
+        <env name="CMS_TWIG_CACHE" value="false" />
+        <env name="ENABLE_CSRF" value="false" />
+        <env name="DB_CONNECTION" value="sqlite" />
+        <env name="DB_DATABASE" value=":memory:" />
+        <env name="MATOMO_REPORTS_LIMIT" value="5" />
+        <env name="MATOMO_REPORTS_PERIOD" value="month" />
+        <env name="MATOMO_REPORTS_CACHE" value="60" />
+    </php>
+</phpunit>

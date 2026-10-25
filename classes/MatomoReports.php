@@ -3,12 +3,13 @@
 use Http;
 use Str;
 use Cache;
+use RuntimeException;
 
 class MatomoReports
 {
     protected string $remote_url;
     protected string $auth_token;
-    protected string $site_id;
+    protected int $site_id;
     protected int $limit;
     protected string $period;
     protected int $cache_seconds = 60;
@@ -46,7 +47,17 @@ class MatomoReports
     protected function getRemoteData(string $url): array
     {
         $response = Http::asForm()->post($url, ['token_auth' => $this->auth_token]);
-        return $response->json();
+        $data = $response->json();
+
+        if (!is_array($data)) {
+            throw new RuntimeException('Matomo returned an invalid response (HTTP ' . $response->status() . ')');
+        }
+
+        if (($data['result'] ?? null) === 'error') {
+            throw new RuntimeException('Matomo: ' . ($data['message'] ?? 'unknown error'));
+        }
+
+        return $data;
     }
 
     public function getVisitsSummary(): array
@@ -92,10 +103,12 @@ class MatomoReports
         });
     }
 
-    public function getCountriesSummery(): string
+    public function getCountriesSummary(): array
     {
-        $url = $this->getRemoteURL('UserCountry.getCountry');
-        return "";
+        $that = $this;
+        return Cache::remember('renick_matomo_countries_sum', $this->cache_seconds, function() use (&$that) {
+            return $that->getRemoteData($that->getRemoteURL('UserCountry.getCountry'));
+        });
     }
 
 }

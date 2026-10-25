@@ -10,3 +10,5 @@
 1.0.5:
   - 'Added: redesigned report widgets'
   - 'Added: support for Laravel 10'
+1.0.6:
+  - 'Added: support for matomo-php-tracker 4 and composer/installers 2'

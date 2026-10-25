@@ -1,7 +1,8 @@
 <?php namespace Renick\Matomo\Classes;
 
 use Closure;
-use Exception;
+use Renick\Matomo\Classes\Compat\UserResolver;
+use Throwable;
 use Illuminate\Http\Request;
 use Renick\Matomo\Models\Settings;
 
@@ -20,12 +21,16 @@ class MatomoMiddleware
         }
 
         try {
+            if (UserResolver::isBackendUserLoggedIn()) {
+                return $next($request);
+            }
+
             Settings::instance()
                 ->getBridge()
                 ->useTracking();
 
-        } catch (Exception $e) {
-            // do nothing, it's quality code, I promise
+        } catch (Throwable $e) {
+            // tracking must never break the page
         }
         return $next($request);
     }

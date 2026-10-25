@@ -3,11 +3,14 @@
 use Arr;
 use Backend\Classes\ReportWidgetBase;
 use Carbon\Carbon;
-use Exception;
+use Throwable;
+use Renick\Matomo\Classes\Compat\WidgetTitle;
 use Renick\Matomo\Models\Settings;
 
 class TrafficOverview extends ReportWidgetBase
 {
+    use WidgetTitle;
+
     /**
      * @var string A unique alias to identify this widget.
      */
@@ -18,7 +21,7 @@ class TrafficOverview extends ReportWidgetBase
         try {
             $this->loadData();
         }
-        catch (Exception $ex) {
+        catch (Throwable $ex) {
             $this->vars['error'] = $ex->getMessage();
         }
 
@@ -29,13 +32,7 @@ class TrafficOverview extends ReportWidgetBase
     public function defineProperties()
     {
         return [
-            'title' => [
-                'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.traffic.label',
-                'type' => 'string',
-                'validationPattern' => '^.+$',
-                'validationMessage' => 'backend::lang.dashboard.widget_title_error'
-            ],
+            'title' => $this->titleProperty('renick.matomo::lang.report_widgets.traffic.label'),
         ];
     }
 
