@@ -4,9 +4,9 @@
   "description": "Matomo integration for OctoberCMS with server-side tracking, report widgets",
   "license": "MIT",
   "require": {
-    "php": ">=7.4",
-    "composer/installers": "~1.0",
-    "matomo/matomo-php-tracker": "3.*"
+    "php": ">=8.0",
+    "composer/installers": "^1.0 || ^2.0",
+    "matomo/matomo-php-tracker": "^3.4 || ^4.0"
   },
   "authors": [
     {

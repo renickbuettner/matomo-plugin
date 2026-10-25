@@ -1,22 +1,25 @@
 <?php namespace Renick\Matomo\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Exception;
+use Throwable;
+use Renick\Matomo\Classes\Compat\WidgetTitle;
 use Renick\Matomo\Models\Settings;
 
 class BrowserOverview extends ReportWidgetBase
 {
+    use WidgetTitle;
+
     /**
      * @var string A unique alias to identify this widget.
      */
-    protected $defaultAlias = 'matomo_traffic_overview';
+    protected $defaultAlias = 'matomo_browser_overview';
 
     public function render()
     {
         try {
             $this->loadData();
         }
-        catch (Exception $ex) {
+        catch (Throwable $ex) {
             $this->vars['error'] = $ex->getMessage();
         }
 
@@ -27,13 +30,7 @@ class BrowserOverview extends ReportWidgetBase
     public function defineProperties()
     {
         return [
-            'title' => [
-                'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.browser.label',
-                'type' => 'string',
-                'validationPattern' => '^.+$',
-                'validationMessage' => 'backend::lang.dashboard.widget_title_error'
-            ],
+            'title' => $this->titleProperty('renick.matomo::lang.report_widgets.browser.label'),
         ];
     }
 

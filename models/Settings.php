@@ -1,6 +1,8 @@
 <?php namespace Renick\Matomo\Models;
 
 use Model;
+use October\Rain\Database\Traits\Validation;
+use Renick\Matomo\Classes\Compat\UserResolver;
 use Renick\Matomo\Classes\MatomoBridge;
 use Renick\Matomo\Classes\MatomoReports;
 use System\Behaviors\SettingsModel;
@@ -10,6 +12,8 @@ use System\Behaviors\SettingsModel;
  */
 class Settings extends Model
 {
+    use Validation;
+
     public $implement = [SettingsModel::class];
     public $settingsCode = 'renick_matomo_settings';
     public $settingsFields = 'fields.yaml';
@@ -20,9 +24,9 @@ class Settings extends Model
      * @var array
      */
     public $rules = [
-        'url' => 'url',
-        'auth_token' => 'string|max:64',
-        'matomo_site_id' => 'numeric',
+        'remote_url' => 'nullable|url',
+        'auth_token' => 'nullable|string|max:64',
+        'matomo_site_id' => 'nullable|numeric',
     ];
 
     /**
@@ -50,9 +54,9 @@ class Settings extends Model
     public function getBridge(): MatomoBridge
     {
         return new MatomoBridge(
-            $this->remote_url,
-            $this->auth_token,
-            $this->matomo_site_id
+            (string) $this->remote_url,
+            $this->auth_token ? (string) $this->auth_token : null,
+            (int) $this->matomo_site_id
         );
     }
 
@@ -63,9 +67,9 @@ class Settings extends Model
     public function getReports(): MatomoReports
     {
         return new MatomoReports(
-            $this->remote_url,
-            $this->auth_token,
-            $this->matomo_site_id
+            (string) $this->remote_url,
+            (string) $this->auth_token,
+            (int) $this->matomo_site_id
         );
     }
 
@@ -104,12 +108,6 @@ class Settings extends Model
      * @return bool
      */
     public function isLoggedInAdmin(): bool {
-        try {
-            $user = \Backend\Facades\BackendAuth::getUser();
-            return $user !== null;
-
-        } catch (\Exception $e) {
-            return false;
-        }
+        return UserResolver::isBackendUserLoggedIn();
     }
 }

@@ -24,7 +24,8 @@ class MTagJs extends ComponentBase
 
     public function remoteUrl(): string
     {
-        return $this->settings->remote_url ?? "";
+        $url = (string) ($this->settings->remote_url ?? "");
+        return $url === "" || substr($url, -1) === "/" ? $url : "{$url}/";
     }
 
     public function containerId(): string

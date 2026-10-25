@@ -1,11 +1,14 @@
 <?php namespace Renick\Matomo\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Exception;
+use Throwable;
+use Renick\Matomo\Classes\Compat\WidgetTitle;
 use Renick\Matomo\Models\Settings;
 
 class CampaignOverview extends ReportWidgetBase
 {
+    use WidgetTitle;
+
     /**
      * @var string A unique alias to identify this widget.
      */
@@ -16,7 +19,7 @@ class CampaignOverview extends ReportWidgetBase
         try {
             $this->loadData();
         }
-        catch (Exception $ex) {
+        catch (Throwable $ex) {
             $this->vars['error'] = $ex->getMessage();
         }
 
@@ -27,13 +30,7 @@ class CampaignOverview extends ReportWidgetBase
     public function defineProperties()
     {
         return [
-            'title' => [
-                'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.campaign.label',
-                'type' => 'string',
-                'validationPattern' => '^.+$',
-                'validationMessage' => 'backend::lang.dashboard.widget_title_error'
-            ],
+            'title' => $this->titleProperty('renick.matomo::lang.report_widgets.campaign.label'),
         ];
     }
 

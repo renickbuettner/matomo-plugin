@@ -32,6 +32,8 @@
         ],
     ],
     'report_widgets' => [
+        'title_label' => 'Titel',
+        'title_error' => 'Bitte einen Widget-Titel eingeben',
         'traffic' => [
             'label' => 'Matomo Traffic Übersicht',
         ],

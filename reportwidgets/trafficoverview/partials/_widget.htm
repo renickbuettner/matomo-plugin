@@ -1,5 +1,8 @@
 <div class="report-widget widget-matomo-traffic-overview">
     <h3><?= e(trans($this->property('title'))) ?></h3>
+    <?php if (!empty($this->vars['error'])): ?>
+        <p class="text-danger"><?= e($this->vars['error']) ?></p>
+    <?php endif; ?>
     <div class="graph-container" style="padding: 6px; min-height: 232px;">
         <div
             data-control="chart-line"
@@ -16,6 +19,6 @@
     </div>
 
     <span style="opacity: 0.9; margin-top: 6px;">
-        <?= trans('renick.matomo::lang.period') ?>: <b><?= $this->vars['period'] ?? '' ?></b>
+        <?= trans('renick.matomo::lang.period') ?>: <b><?= e($this->vars['period'] ?? '') ?></b>
     </span>
 </div>

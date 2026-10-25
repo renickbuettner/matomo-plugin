@@ -26,8 +26,14 @@ class Plugin extends PluginBase
             return;
         }
 
-        $kernel = $this->app[Kernel::class];
-        $kernel->pushMiddleware(MatomoMiddleware::class);
+        // web group has the session started, so logged-in admins can be skipped; global middleware runs before it
+        $router = $this->app['router'];
+        if (method_exists($router, 'pushMiddlewareToGroup') && isset($router->getMiddlewareGroups()['web'])) {
+            $router->pushMiddlewareToGroup('web', MatomoMiddleware::class);
+            return;
+        }
+
+        $this->app[Kernel::class]->pushMiddleware(MatomoMiddleware::class);
     }
 
     public function registerSettings(): array

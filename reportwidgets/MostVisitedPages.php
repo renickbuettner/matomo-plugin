@@ -1,22 +1,25 @@
 <?php namespace Renick\Matomo\ReportWidgets;
 
 use Backend\Classes\ReportWidgetBase;
-use Exception;
+use Throwable;
+use Renick\Matomo\Classes\Compat\WidgetTitle;
 use Renick\Matomo\Models\Settings;
 
 class MostVisitedPages extends ReportWidgetBase
 {
+    use WidgetTitle;
+
     /**
      * @var string A unique alias to identify this widget.
      */
-    protected $defaultAlias = 'matomo_most_visited_pages';
+    protected $defaultAlias = 'matomo_pages_overview';
 
     public function render()
     {
         try {
             $this->loadData();
         }
-        catch (Exception $ex) {
+        catch (Throwable $ex) {
             $this->vars['error'] = $ex->getMessage();
         }
 
@@ -27,13 +30,7 @@ class MostVisitedPages extends ReportWidgetBase
     public function defineProperties()
     {
         return [
-            'title' => [
-                'title' => 'backend::lang.dashboard.widget_title_label',
-                'default' => 'renick.matomo::lang.report_widgets.pages.label',
-                'type' => 'string',
-                'validationPattern' => '^.+$',
-                'validationMessage' => 'backend::lang.dashboard.widget_title_error'
-            ],
+            'title' => $this->titleProperty('renick.matomo::lang.report_widgets.pages.label'),
         ];
     }
 
