@@ -22,7 +22,7 @@ class TrafficOverview extends ReportWidgetBase
             $this->loadData();
         }
         catch (Throwable $ex) {
-            $this->vars['error'] = $ex->getMessage();
+            $this->reportLoadError($ex);
         }
 
 

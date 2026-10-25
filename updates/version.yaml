@@ -12,3 +12,8 @@
   - 'Added: support for Laravel 10'
 1.0.6:
   - 'Added: support for matomo-php-tracker 4 and composer/installers 2'
+1.0.7:
+  - 'Fixed: HTTP 500 on frontend pages with server-side tracking enabled (undefined Auth::check)'
+  - 'Fixed: logged-in backend users are no longer tracked server-side'
+  - 'Fixed: settings validation, missing auth token, stored XSS in report widgets'
+  - 'Changed: report widgets show a generic error and log the details'

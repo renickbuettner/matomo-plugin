@@ -34,6 +34,7 @@
     'report_widgets' => [
         'title_label' => 'Titel',
         'title_error' => 'Bitte einen Widget-Titel eingeben',
+        'load_error' => 'Matomo-Daten konnten nicht geladen werden. Details stehen im System-Log.',
         'traffic' => [
             'label' => 'Matomo Traffic Übersicht',
         ],
